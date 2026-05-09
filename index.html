@@ -119,7 +119,6 @@
         const editor = document.getElementById('code-editor');
         const preview = document.getElementById('live-view');
 
-        // Dil Verileri
         const translations = {
             tr: {
                 logo: "GODBY", deploy: "+ DEPLOY (OLUŞTUR)", editor: "EDİTÖR / index.html",
@@ -161,7 +160,6 @@
             bubble.style.display = (bubble.style.display === 'block') ? 'none' : 'block';
         }
 
-        // Editör Çalıştırma
         editor.addEventListener('input', () => {
             const frameDoc = preview.contentWindow.document;
             frameDoc.open();
