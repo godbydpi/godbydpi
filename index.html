@@ -1,202 +1,227 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GodbyDepo | Cloud Vault</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark: #080808;
-            --panel-bg: #121212;
-            --neon-pink: #ff00ff;
-            --neon-red: #ff3131;
-            --text-green: #00ff41;
-        }
-
-        body, html {
-            margin: 0; padding: 0; height: 100%;
-            background-color: var(--bg-dark);
-            color: white; font-family: 'Fira Code', monospace;
-            overflow: hidden;
-        }
-
-        #main-app { display: flex; height: 100vh; flex-direction: column; }
-
-        header {
-            height: 60px; background: var(--panel-bg);
-            display: flex; justify-content: space-between;
-            align-items: center; padding: 0 20px;
-            border-bottom: 1px solid var(--neon-pink);
-        }
-
-        .logo { font-size: 24px; font-weight: bold; color: var(--neon-pink); letter-spacing: 2px; }
-
-        .nav-btns button {
-            background: var(--neon-red); color: white; border: none;
-            padding: 10px 20px; font-weight: bold; cursor: pointer;
-            border-radius: 4px; transition: 0.3s;
-        }
-        .nav-btns button:hover { background: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink); }
-
-        .content-wrapper { display: flex; flex: 1; overflow: hidden; }
-        
-        #editor-container { flex: 1; display: flex; flex-direction: column; border-right: 1px solid #333; }
-
-        textarea {
-            flex: 1; background: #000; color: var(--text-green);
-            padding: 20px; border: none; outline: none;
-            font-size: 16px; resize: none; font-family: 'Fira Code', monospace;
-        }
-
-        #preview-container { flex: 1; background: white; }
-        iframe { width: 100%; height: 100%; border: none; }
-
-        /* MITO AI STYLES */
-        #mito-bot {
-            position: fixed; bottom: 20px; right: 20px;
-            width: 60px; cursor: pointer; z-index: 100;
-            transition: transform 0.3s;
-        }
-        #mito-bot:hover { transform: scale(1.1); }
-
-        #mito-bubble {
-            position: fixed; bottom: 90px; right: 20px;
-            background: var(--panel-bg); border: 1px solid var(--neon-pink);
-            padding: 15px; border-radius: 10px; width: 280px;
-            display: none; box-shadow: 0 0 15px var(--neon-pink); z-index: 101;
-        }
-
-        .mito-btns button {
-            display: block; width: 100%; margin: 5px 0; padding: 8px;
-            background: #222; color: white; border: 1px solid #444;
-            cursor: pointer; font-size: 11px; text-align: left;
-        }
-        .mito-btns button:hover { background: var(--neon-pink); }
-
-        .lang-menu { display: none; margin-top: 10px; border-top: 1px dashed #555; padding-top: 10px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DDOS ATACK</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #0a0a0a;
+      color: #e0e0e0;
+      font-family: 'Courier New', monospace;
+      overflow-x: hidden;
+    }
+    .header {
+      background: #000;
+      padding: 15px;
+      text-align: center;
+      border-bottom: 2px solid #ff0000;
+    }
+    .logo {
+      width: 260px;
+      filter: drop-shadow(0 0 20px #ff0000);
+      image-rendering: crisp-edges;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+    .login-box, .main-page {
+      background: #111111;
+      border: 1px solid #333;
+      padding: 30px;
+      border-radius: 8px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background: #1a1a1a;
+      border: 1px solid #444;
+      color: #e0e0e0;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background: #1f1f1f;
+      border: 1px solid #666;
+      color: #e0e0e0;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ff0000;
+      color: white;
+      border-color: #ff0000;
+    }
+    .ifsa-btn {
+      background: #8B0000;
+      color: white;
+      font-size: 18px;
+      padding: 15px;
+      margin: 20px 0;
+      border: 2px solid #ff0000;
+    }
+    .ifsa-btn:hover {
+      background: #ff0000;
+      box-shadow: 0 0 25px #ff0000;
+    }
+    .feed {
+      margin-top: 20px;
+    }
+    .post {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+    .post img, .post video {
+      max-width: 100%;
+      margin-top: 10px;
+      border: 1px solid #444;
+      border-radius: 6px;
+    }
+    .status {
+      color: #aaa;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
 
-    <div id="main-app">
-        <header>
-            <div class="logo" id="txt-logo">GODBY</div>
-            <div class="nav-btns">
-                <button onclick="deployCode()" id="txt-deploy">+ DEPLOY (CREATE)</button>
-            </div>
-        </header>
+  <!-- LOGIN SAYFASI -->
+  <div id="loginPage">
+    <div class="header">
+      <img src="https://cdn.phototourl.com/free/2026-05-10-8f64af96-f57f-47dd-b0ff-b9a16f16cc45.jpg" 
+           alt="DDOS ATACK" class="logo" 
+           onerror="this.src='https://via.placeholder.com/260x260/111111/ffffff?text=DDOS+ATACK'">
+      <h1 style="color:#ff0000; margin-top:10px;">DDOS ATACK</h1>
+    </div>
+    <div class="container">
+      <div class="login-box">
+        <h2 style="text-align:center; margin-bottom:20px; color:#ff0000;">🔓 KAYIT OL / GİRİŞ YAP</h2>
+        <input type="email" id="email" placeholder="E-posta adresi" required>
+        <input type="password" id="password" placeholder="Şifre" required>
+        <button onclick="register()">KAYIT OL VE GİRİŞ YAP</button>
+        <p class="status">Herkes girebilir • Veriler kalıcıdır • Yenilense bile gitmez</p>
+      </div>
+    </div>
+  </div>
 
-        <div class="content-wrapper">
-            <div id="editor-container">
-                <div id="txt-editor-label" style="background: #1a1a1a; padding: 5px 15px; font-size: 12px; color: #888;">EDITOR / index.html</div>
-                <textarea id="code-editor" spellcheck="false" placeholder="Write your code..."></textarea>
-            </div>
-            <div id="preview-container">
-                <div id="txt-preview-label" style="background: #eee; padding: 5px 15px; font-size: 12px; color: #333;">LIVE PREVIEW</div>
-                <iframe id="live-view"></iframe>
-            </div>
-        </div>
+  <!-- ANA SAYFA -->
+  <div id="mainPage" style="display:none;">
+    <div class="header">
+      <img src="https://cdn.phototourl.com/free/2026-05-10-8f64af96-f57f-47dd-b0ff-b9a16f16cc45.jpg" 
+           alt="DDOS ATACK" class="logo" 
+           onerror="this.src='https://via.placeholder.com/260x260/111111/ffffff?text=DDOS+ATACK'">
+      <h1 style="color:#ff0000;">DDOS ATACK</h1>
     </div>
 
-    <!-- MITO AI -->
-    <div id="mito-bubble">
-        <div id="mito-text">Merhaba kanka! Bugün ne yapmak istersin?</div>
-        <div class="mito-btns">
-            <button onclick="mitoFootball()" id="btn-game">Oynanabilir Futbol Yap</button>
-            <button onclick="toggleLangMenu()" id="btn-lang">Dili Değiştir (Language)</button>
-            <div id="lang-menu" class="lang-menu">
-                <button onclick="changeLang('tr')">🇹🇷 Türkçe</button>
-                <button onclick="changeLang('en')">🇺🇸 English</button>
-                <button onclick="changeLang('ru')">🇷🇺 Русский</button>
-            </div>
-            <button onclick="toggleMito()" style="background:var(--neon-red)" id="btn-close">Kapat</button>
-        </div>
+    <div class="container">
+      <button class="ifsa-btn" onclick="ifsaModu()">🚨 İFŞA ET (Tam Erişim)</button>
+
+      <div class="login-box">
+        <h3>Yeni İfşa / Paylaşım</h3>
+        <textarea id="postText" rows="4" placeholder="Ne ifşa etmek istiyorsun?"></textarea>
+        
+        <input type="file" id="fileInput" accept="image/*,video/*,.gif" style="margin:10px 0;">
+        
+        <button onclick="postShare()">PAYLAŞ</button>
+      </div>
+
+      <div class="feed" id="feed">
+        <!-- Paylaşımlar buraya gelir -->
+      </div>
     </div>
-    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" id="mito-bot" onclick="toggleMito()">
+  </div>
 
-    <script>
-        const editor = document.getElementById('code-editor');
-        const preview = document.getElementById('live-view');
+  <script>
+    let currentUser = null;
 
-        const translations = {
-            tr: {
-                logo: "GODBY", deploy: "+ DEPLOY (OLUŞTUR)", editor: "EDİTÖR / index.html",
-                preview: "CANLI ÖNİZLEME", welcome: "Merhaba kanka! Bugün ne yapmak istersin?",
-                game: "Oynanabilir Futbol Yap", lang: "Dili Değiştir", close: "Kapat"
-            },
-            en: {
-                logo: "GODBY", deploy: "+ DEPLOY (CREATE)", editor: "EDITOR / index.html",
-                preview: "LIVE PREVIEW", welcome: "Hello buddy! What do you want to build?",
-                game: "Make Playable Football", lang: "Change Language", close: "Close"
-            },
-            ru: {
-                logo: "ГОДБИ", deploy: "+ РАЗВЕРНУТЬ", editor: "РЕДАКТОР / index.html",
-                preview: "ПРЕДПРОСМОТР", welcome: "Привет, друг! Что будем создавать?",
-                game: "Создать футбол", lang: "Изменить язык", close: "Закрыть"
-            }
-        };
+    function register() {
+      const email = document.getElementById('email').value.trim();
+      const pass = document.getElementById('password').value.trim();
 
-        function changeLang(lang) {
-            const t = translations[lang];
-            document.getElementById('txt-logo').innerText = t.logo;
-            document.getElementById('txt-deploy').innerText = t.deploy;
-            document.getElementById('txt-editor-label').innerText = t.editor;
-            document.getElementById('txt-preview-label').innerText = t.preview;
-            document.getElementById('mito-text').innerText = t.welcome;
-            document.getElementById('btn-game').innerText = t.game;
-            document.getElementById('btn-lang').innerText = t.lang;
-            document.getElementById('btn-close').innerText = t.close;
-            document.getElementById('lang-menu').style.display = 'none';
-        }
+      if (!email || !pass) {
+        alert("E-posta ve şifre giriniz!");
+        return;
+      }
 
-        function toggleLangMenu() {
-            const menu = document.getElementById('lang-menu');
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-        }
+      currentUser = { email: email, name: email.split('@')[0] };
+      localStorage.setItem('ddosUser', JSON.stringify(currentUser));
+      
+      document.getElementById('loginPage').style.display = 'none';
+      document.getElementById('mainPage').style.display = 'block';
+      loadPosts();
+    }
 
-        function toggleMito() {
-            const bubble = document.getElementById('mito-bubble');
-            bubble.style.display = (bubble.style.display === 'block') ? 'none' : 'block';
-        }
+    function loadPosts() {
+      const feed = document.getElementById('feed');
+      const posts = JSON.parse(localStorage.getItem('ddosPosts')) || [];
+      feed.innerHTML = '';
 
-        editor.addEventListener('input', () => {
-            const frameDoc = preview.contentWindow.document;
-            frameDoc.open();
-            frameDoc.write(editor.value);
-            frameDoc.close();
-        });
+      posts.reverse().forEach(post => {
+        const div = document.createElement('div');
+        div.className = 'post';
+        div.innerHTML = `
+          <strong style="color:#ff6666;">${post.user}</strong> 
+          <small style="color:#666;">${post.time}</small>
+          <p>${post.text}</p>
+          \( {post.file ? `<img src=" \){post.file}" alt="yuklenen">` : ''}
+        `;
+        feed.appendChild(div);
+      });
+    }
 
-        function mitoFootball() {
-            const footballCode = `
-<!DOCTYPE html>
-<html>
-<body style="background: #228B22; margin: 0; overflow:hidden; font-family:sans-serif;">
-    <div style="text-align:center; color:white; padding:10px;">WASD Tuşları ile Topu Sür!</div>
-    <div id="ball" style="width: 40px; height: 40px; background: white; border: 2px solid black; border-radius: 50%; position: absolute; top: 50%; left: 50%; transition: 0.1s;"></div>
-    <div style="position:absolute; right:0; top:40%; width:20px; height:100px; background:white; border-left:5px solid red;"></div>
-    <script>
-        let x = window.innerWidth / 2;
-        let y = window.innerHeight / 2;
-        const ball = document.getElementById('ball');
-        window.addEventListener('keydown', (e) => {
-            if(e.key === 'w') y -= 15;
-            if(e.key === 's') y += 15;
-            if(e.key === 'a') x -= 15;
-            if(e.key === 'd') x += 15;
-            ball.style.left = x + 'px';
-            ball.style.top = y + 'px';
-            if(x > window.innerWidth - 60) alert('GOOOOOL!');
-        });
-    <\/script>
-</body>
-</html>`;
-            editor.value = footballCode.trim();
-            editor.dispatchEvent(new Event('input'));
-            toggleMito();
-        }
+    function postShare() {
+      const text = document.getElementById('postText').value.trim();
+      const fileInput = document.getElementById('fileInput');
+      
+      if (!text && !fileInput.files.length) {
+        alert("Mesaj yaz veya dosya yükle!");
+        return;
+      }
 
-        function deployCode() { alert("GodbyDepo: Proje buluta gönderildi!"); }
-    </script>
+      const posts = JSON.parse(localStorage.getItem('ddosPosts')) || [];
+      let fileURL = '';
+      
+      if (fileInput.files.length > 0) {
+        fileURL = URL.createObjectURL(fileInput.files[0]);
+      }
+
+      posts.push({
+        user: currentUser.name,
+        text: text || "Dosya yüklendi...",
+        file: fileURL,
+        time: new Date().toLocaleString('tr-TR')
+      });
+
+      localStorage.setItem('ddosPosts', JSON.stringify(posts));
+      document.getElementById('postText').value = '';
+      document.getElementById('fileInput').value = '';
+      loadPosts();
+    }
+
+    function ifsaModu() {
+      alert("🚨 İFŞA MODU AKTİF!\n\nArtık her şeye tam erişimin var.\nMesajlar ve dosyalar kalıcı olarak saklanıyor.");
+    }
+
+    window.onload = () => {
+      const savedUser = localStorage.getItem('ddosUser');
+      if (savedUser) {
+        currentUser = JSON.parse(savedUser);
+        document.getElementById('loginPage').style.display = 'none';
+        document.getElementById('mainPage').style.display = 'block';
+        loadPosts();
+      }
+    };
+  </script>
 </body>
 </html>
